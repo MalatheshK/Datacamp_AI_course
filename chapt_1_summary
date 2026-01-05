@@ -1,0 +1,21 @@
+Summarizing and editing text
+You learned about making your first request to the OpenAI API, which involves interacting with various API endpoints to utilize OpenAI's models. Key points covered include:
+
+API Endpoints: You discovered that endpoints are specific access points for different services provided by an API, similar to how different doors in a hospital lead to various departments.
+API Authentication: You learned that accessing most API services requires authentication, typically through a unique key.
+Costs Associated with API Use: It was highlighted that using OpenAI's API services incurs costs based on the model and the size of the input and output, though the course exercises are configured to avoid these costs.
+Navigating API Documentation: The importance of consulting API documentation for details on endpoints, their functionalities, and authentication setup was emphasized.
+Creating an API Request: You practiced creating a request to the OpenAI API using Python, specifically targeting the completions endpoint to complete a text prompt. The process involves specifying the model and the prompt in the request.
+Here's a snippet of the code you worked with:
+
+# Create the OpenAI client
+client = OpenAI(api_key="<OPENAI_API_TOKEN>")
+
+# Create a request to the Completions endpoint
+response = client.completions.create(
+  model="gpt-3.5-turbo-instruct",
+  prompt="Who developed ChatGPT?"
+)
+This lesson equipped you with the foundational skills to start making API requests to OpenAI and interpreting the responses, a crucial step in leveraging AI models for various applications.
+
+The goal of the next lesson is to learn how to fine-tune the OpenAI GPT model for specific tasks, enhancing its ability to generate or transform text according to unique requirements.
