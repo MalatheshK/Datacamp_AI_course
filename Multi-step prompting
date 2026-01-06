@@ -1,0 +1,26 @@
+Multi-step prompting
+You explored the concept of multi-step prompting, a technique that breaks down complex tasks into smaller, manageable steps for language models. This approach helps in generating more effective and precise outputs by guiding the model through a series of instructions. Key points covered include:
+
+Understanding Multi-step Prompting: You learned that multi-step prompting involves dividing an end goal into a sequence of steps, making it easier for the model to produce the desired outcome. This is particularly useful for tasks requiring a series of actions or cognitive processing.
+
+Applications: You saw how multi-step prompts can be applied in various contexts, such as writing a coherent travel blog or analyzing the correctness of a Python code snippet. For example, to assess a code's correctness, you might start with checking syntax, followed by verifying functionality like handling division by zero.
+
+Code Implementation:
+
+# Set your API key
+client = OpenAI(api_key="<OPENAI_API_TOKEN>")
+
+# Create a prompt detailing steps to plan the trip
+prompt = """
+     Help me plan a beach vacation.
+     Step 1 - Specify four potential locations for beach vacations
+     Step 2 - State some accommodation options in each
+     Step 3 - State activities that could be done in each
+     Step 4 - Evaluate the pros and cons for each destination
+    """
+
+response = get_response(prompt)
+print(response)
+This lesson emphasized the importance of structuring prompts in a way that leads to more accurate and meaningful model outputs, showcasing the power of multi-step prompting in achieving complex objectives.
+
+The goal of the next lesson is to learn how to apply advanced prompting techniques, such as chain-of-thought and self-consistency, to improve complex reasoning in language models.
