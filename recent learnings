@@ -1,0 +1,26 @@
+When you left 13 hours ago, you worked on Prompting OpenAI Models, chapter 2 of the course Working with the OpenAI API. Here is what you covered in your last lesson:
+
+You learned about the Chat Completions endpoint of OpenAI's API, which enables multi-turn conversations with AI models, offering a more dynamic interaction than the single-turn Completions endpoint. This feature is particularly useful for developing applications that require ongoing dialogue, such as chatbots. Key points include:
+
+Roles in Chat Models: You discovered the three main roles—system, user, and assistant—that facilitate the chat's flow. The system role controls the assistant's behavior, the user role provides instructions, and the assistant responds accordingly.
+Creating Chat Requests: You learned how to make requests to the Chat Completions endpoint by setting up a list of dictionaries, each representing a message from one of the roles. This method allows for greater customizability of responses.
+Extracting Responses: The process to extract the assistant's response involves accessing the choices attribute, subsetting the first element to get the Choice object, and then retrieving the content through the message and content attributes.
+Here's a snippet from the lesson showing how to create a request and print the assistant's response:
+
+client = OpenAI(api_key="<OPENAI_API_TOKEN>")
+
+# Create a request to the Chat Completions endpoint
+response = client.chat.completions.create(
+  model="gpt-3.5-turbo",
+  max_tokens=150,
+  messages=[
+    {"role": "system", "content": "You are a helpful data science tutor."},
+    {"role": "user", "content": "What is the difference between a for loop and a while loop?"}
+  ]
+)
+
+# Extract the assistant's text response
+print(response.choices[0].message.content)
+This lesson laid the groundwork for using chat models for both single-turn tasks and preparing you for multi-turn conversation capabilities in upcoming lessons.
+
+The goal of the next lesson is to learn how to effectively use OpenAI's text moderation models to enhance online safety and content integrity.
