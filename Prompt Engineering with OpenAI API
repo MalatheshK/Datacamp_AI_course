@@ -1,0 +1,92 @@
+Exercise 1
+OpenAI API message roles
+You are developing a chatbot for an event management agency that will be used to facilitate networking during events.
+
+Using the OpenAI API, you prepare a dictionary to pass as the message to the chat.completions endpoint. The message needs to have 3 roles defined to ensure the model has enough guidance to provide helpful responses.
+
+Throughout the course, you'll write Python code to interact with the OpenAI API. Entering your own API key is not necessary to create requests and complete the exercises in this course. You can leave the placeholder "<OPENAI_API_TOKEN>" as the key in api_key.
+
+The OpenAI package has been pre-loaded for you.
+
+Instructions
+100 XP
+Create an OpenAI API Python client; setting your personal key is not required, you can leave the placeholder.
+Complete the dictionary of messages with the role corresponding to each of the messages provided.
+
+Solution
+# Create the OpenAI client: you can leave "<OPENAI_API_TOKEN>" as is
+client = OpenAI(api_key="<OPENAI_API_TOKEN>")
+
+# Define the conversation messages
+conversation_messages = [
+    {"role": "system", "content": "You are a helpful event management assistant."},
+    {"role": "user", "content": "What are some good conversation starters at networking events?"},
+    {"role": "assistant", "content": ""}
+]
+
+response = client.chat.completions.create(
+  model="gpt-4o-mini",
+  messages=conversation_messages
+)
+print(response.choices[0].message.content)
+
+
+Exercise 2
+Creating the get_response() function
+Most of the exercises in this course will call the chat.completions endpoint of the OpenAI API with a user prompt. Here, you will create a get_response() function that receives a prompt as input and returns the response as an output, which in future exercises will be pre-loaded for you.
+
+The OpenAI package, and OpenAI API Python client have been pre-loaded.
+
+Instructions
+100 XP
+Create a request to the chat.completions endpoint inside the get_response() function.
+Try out the function with a prompt that asks the model to write a poem about ChatGPT.
+
+Solution
+
+def get_response(prompt):
+  # Create a request to the chat completions endpoint
+  response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": prompt}], 
+    temperature = 0)
+  return response.choices[0].message.content
+
+# Test the function with your prompt
+response = get_response("Write a poem about ChatGPT")
+print(response)
+
+
+Exercise 3
+Exploring prompt engineering
+Prompt engineering refers to crafting effective prompts to guide the language model towards the intended response. By refining your prompts, you can achieve better results and guide the model towards generating more accurate and useful responses. Your task in this exercise is to modify the prompt you used in the previous exercise.
+
+The OpenAI package and the get_response() function have been pre-loaded for you.
+
+Instructions
+100 XP
+Craft a prompt that asks the model to generate a poem about ChatGPT while ensuring that it is written in basic English that a child can understand.
+Get the response using the get_response() function.
+
+Solution
+
+client = OpenAI(api_key="<OPENAI_API_TOKEN>")
+
+# Craft a prompt that follows the instructions
+prompt = "Write a poem about ChatGPT in basic English that a child can understand"
+
+# Get the response
+response = get_response(prompt)
+
+print(response)
+
+
+
+
+Key principles of prompt engineering :
+three key principles of prompt engineering:
+
+Use clear action verbs like "write," "explain," or "describe" to guide the model.
+Provide detailed, specific instructions about the task, context, and output format.
+Structure prompts with delimiters and instructions at the start to help the model understand what to do.
+These principles help create precise prompts that lead to better AI responses.
