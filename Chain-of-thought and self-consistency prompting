@@ -1,0 +1,20 @@
+Chain-of-thought and self-consistency prompting
+You learned about advanced prompting techniques for language models, focusing on chain-of-thought and self-consistency prompting. These methods enhance the model's ability to tackle complex reasoning tasks by providing detailed, step-by-step explanations of its thought process, leading to more accurate and reliable outputs.
+
+Chain-of-thought prompting requires the model to outline its reasoning steps before arriving at a final answer. This approach is especially useful for complex problems, as it breaks down the model's thought process into understandable segments. For instance, when solving a math problem, the model explains each step of its calculation, making its reasoning transparent and easier to follow.
+
+Self-consistency prompting involves generating multiple chain-of-thought responses and selecting the most common answer as the final output. This technique addresses the issue of potential errors in a single chain of thought by aggregating multiple reasoning paths, thereby increasing the likelihood of a correct answer.
+
+Here's an example of how you might set up a chain-of-thought prompt in Python using the OpenAI API:
+
+# Set your API key
+client = OpenAI(api_key="<OPENAI_API_TOKEN>")
+
+# Create the chain-of-thought prompt
+prompt = "Compute the age of my friend's father in 10 years, given that now he's double my friend's age, and my friend is 20. Give a step by step explanation."
+
+response = get_response(prompt)
+print(response)
+This lesson equipped you with strategies to refine prompts iteratively through experimentation, ensuring more meaningful interactions with language models.
+
+The goal of the next lesson is to learn how to improve communication with language models through the practice of refining prompts.
